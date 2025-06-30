@@ -2,30 +2,33 @@
 #include <time.h>
 using namespace std;
 
-int opcao()
+int ler()
 {
-    string st;
-    cout << "\nDeseja lançar o dado?[S/N]: ";
-    cin >> st;
-    if (st == "s" || st =="S") return true;
-    else return false;
+    int x;
+    cout << "\nDigite o número que deseja: ";
+    cin >> x;
+    return x;
 }
-int lancar()
+bool conferindo (int x)
 {
-    srand(time(0));
-    return rand() % 6 +1;
-}
-void teste (int x)
-{
-    string array[]={"brincar", "jogar", "dancar", "trabalhar", "estudar", "cantar"};
-    cout << "\nFoi sorteado você: " << array[x-1];
+    int soma=0;
+    bool teste;
+    for (int i=x/2; i>0; i--)
+    {
+        if (x%i==0) soma+=i;
+    }
+    if(x== soma) teste= true;
+    else teste= false;
+    return teste;
 }
 int main()
 {
-    while (opcao())
+    int x= ler();
+    bool teste= conferindo(x);
+    if(teste)
     {
-        int x= lancar();
-        teste(x);
+        cout << "\nÉ um natural perfeito";
     }
-    cout << "Obrigado";
+    else cout << "\nNão é um natural perfeito";
+    return 0;
 }
