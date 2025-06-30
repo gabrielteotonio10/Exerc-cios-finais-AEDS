@@ -1,28 +1,31 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
-void sorteandoIn()
+
+int opcao()
 {
-    for (int i=0; i<6; i++)
-    {
-        int x= rand()%60 +1;
-        cout << x << " ";
-    }
+    string st;
+    cout << "\nDeseja lançar o dado?[S/N]: ";
+    cin >> st;
+    if (st == "s" || st =="S") return true;
+    else return false;
 }
-void sorteandoIn(int i)
+int lancar()
 {
-    if (i<6)
-    {
-        int x= rand()%60 +1;
-        cout << x << " ";
-        sorteandoIn(i+1);
-    }
+    srand(time(0));
+    return rand() % 6 +1;
+}
+void teste (int x)
+{
+    string array[]={"brincar", "jogar", "dancar", "trabalhar", "estudar", "cantar"};
+    cout << "\nFoi sorteado você: " << array[x-1];
 }
 int main()
 {
-    srand(time(0));
-    sorteandoIn ();
-    cout << endl;
-    sorteandoIn (0);
-    return 0;
+    while (opcao())
+    {
+        int x= lancar();
+        teste(x);
+    }
+    cout << "Obrigado";
 }
