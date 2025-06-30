@@ -48,7 +48,6 @@ public:
     int getQuantidade();
     void setRaio(float raio);
     float getRaio();
-    int getQuantidade();
     void leia()
     {
 
@@ -60,6 +59,14 @@ public:
     float perimetro(int raio)
     {
 
+    }
+    float area(int raio)
+    {
+        return raio*raio*3,14;
+    }
+    Circulo()
+    {
+        Circulo::TAMcirculo++;
     }
     Circulo(float raio)
     {
