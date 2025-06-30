@@ -21,10 +21,22 @@ bool conferindo (int x)
     else teste= false;
     return teste;
 }
+int conferindo(int x, int i, int soma)
+{
+    if(i>0)    
+    {
+        if(x%i==0) soma= i + soma;
+        return conferindo(x, i-1, soma);
+    }
+    int teste;
+    if(x== soma) teste= 1;
+    else teste= 0;
+    return teste;
+}
 int main()
 {
     int x= ler();
-    bool teste= conferindo(x);
+    bool teste= conferindo(x, x/2, 0);
     if(teste)
     {
         cout << "\nÉ um natural perfeito";
