@@ -19,6 +19,7 @@ public:
     string getTracao();
 
     virtual void escreve()=0;
+    
     Veiculos(string modelo, int ano, string tracao)
     {
         setModelo(modelo);
